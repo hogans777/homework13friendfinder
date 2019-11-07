@@ -1,16 +1,18 @@
-{
-  "name": "friendfinder",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2"
-  }
-}
+var express = require("express");
+var bodyParser - require("body-parser");
+var path =require("path");
+
+var app = express();
+var port = process.envPort || 3000;
+
+app.use(bodyParser.json());
+app.use(bodyPaser.urlencoded({extendted: true }));
+app.use(bodyParser.text());
+app use(bodyParser.json({ type: "application/vnd.apijson"}));
+
+app.use(express.static("app/public"));
+ 
+require(".//app/ruting/api-routes.js")(app);
+require("./app/routing/html.routes.js")(app);
+
+app.listen(port, () => console.log("sick of this shit", port));
